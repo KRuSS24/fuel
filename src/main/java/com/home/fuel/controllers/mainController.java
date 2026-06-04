@@ -19,6 +19,12 @@ public class mainController {
         return  "fuel_cards";
     }
 
+    @GetMapping("/drivers_list")
+    public String getDrivers(Model model){
+        model.addAttribute("drivers",dtoService.getDrivers());
+        return "drivers_list";
+    }
+
     @GetMapping("/")
     public String home(){
         return "index";
