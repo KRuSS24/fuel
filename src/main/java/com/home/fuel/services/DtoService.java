@@ -44,7 +44,7 @@ public class DtoService {
         if(!driverEntities.isEmpty()){
             for(DriverEntity element: driverEntities){
                 Driver driverDto = new Driver();
-                driverDto.setFirtstName(element.getFirstName());
+                driverDto.setFirstName(element.getFirstName());
                 driverDto.setLastName(element.getLastName());
                 drivers.add(driverDto);
             }

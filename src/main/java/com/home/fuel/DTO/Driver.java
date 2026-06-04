@@ -1,23 +1,23 @@
 package com.home.fuel.DTO;
 
 public class Driver {
-    private String firtstName;
+    private String firstName;
     private String lastName;
 
-    public Driver(String firtstName, String lastName) {
-        this.firtstName = firtstName;
+    public Driver(String firstName, String lastName) {
+        this.firstName = firstName;
         this.lastName = lastName;
     }
 
     public Driver() {
     }
 
-    public String getFirtstName() {
-        return firtstName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFirtstName(String firtstName) {
-        this.firtstName = firtstName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
     public String getLastName() {

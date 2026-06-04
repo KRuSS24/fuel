@@ -9,11 +9,16 @@
 </head>
 <body>
 
-<p><a href="/"><b>H</b>ome</a></p>
-<p><a href="/fuel_cards"><b>A</b>ll Cards</a></p>
-<p><b>D</b>river list</p><br>
-<!--<div th:if>-->
-<p th:each="element : ${drivers}" th:text="${element.first_name}" ><span th:text=","></span> <span th:text="${element.last_name}"></span></p><br>
-<!--</div>-->
+    <p><a href="/"><b>H</b>ome</a></p>
+    <p><a href="/fuel_cards"><b>A</b>ll Cards</a></p>
+    <p><b>D</b>river list</p><br>
+    <div th:each="element : ${drivers}">
+
+        <span th:text="${element.firstName}"></span>
+<!--        <span></span>-->
+        <span th:text="${element.lastName}"></span>
+        <button>Delete</button>
+        <br>
+    </div>
 </body>
 </html>
