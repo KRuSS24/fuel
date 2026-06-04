@@ -11,6 +11,8 @@
 
 <p><a href="/"><b>H</b>ome</a></p>
 <p><b>A</b>ll Cards</p>
-
+<!--<div th:if>-->
+<p th:each="element : ${fuel_cards}" th:text="${element.cardNr}"></p><br>
+<!--</div>-->
 </body>
 </html>

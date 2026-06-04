@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 
 @Entity
-@Table(name = "petrol_station")
+@Table(name = "petrol_stations")
 public class FuelStationEntity {
     @Id
     @Column(name = "id", nullable = false)

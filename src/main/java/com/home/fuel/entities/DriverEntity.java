@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 
 @Entity
-@Table(name = "driver")
+@Table(name = "drivers")
 public class DriverEntity {
     @Id()
     @Column(name = "id", nullable = false, unique = true)

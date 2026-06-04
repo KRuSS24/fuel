@@ -18,14 +18,16 @@ public class DtoService {
     public List<FuelCard> getFuelCards() {
         List<FuelCardEntity> fuelCardEntities = fuelCardEntityRepo.findAll();
         List<FuelCard> fuelCardList = new ArrayList<>();
-        FuelCard fuelCard = new FuelCard();
         if (!fuelCardEntities.isEmpty()) {
             for (FuelCardEntity element : fuelCardEntities) {
+
+                FuelCard fuelCard = new FuelCard();
                 fuelCard.setCardNr(element.getCardNr());
                 fuelCard.setPin(element.getPin());
                 fuelCard.setExpDate(element.getExpDate());
                 fuelCard.setTruckNr(element.getTruckNr());
                 fuelCard.setFuelStation(element.getFuelStationEntity().getStationName());
+
                 fuelCardList.add(fuelCard);
             }
         }
