@@ -21,4 +21,6 @@ public class DriverEntity {
     private String firstName;
     @Column(name = "driver_last_name", nullable = false)
     private String lastName;
+    @Column(name = "is_active", nullable = false)
+    private Boolean isActive;
 }

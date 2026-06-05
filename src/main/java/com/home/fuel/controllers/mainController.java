@@ -26,7 +26,11 @@ public class mainController {
     }
 
     @GetMapping("/")
-    public String home(){
+    public String home(Model model)
+    {
+        model.addAttribute("fuel_cards", dtoService.getFuelCards());
+        model.addAttribute("drivers",dtoService.getActiveDrivers());
         return "index";
+
     }
 }

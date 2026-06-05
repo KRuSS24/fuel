@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Component()
 @RequiredArgsConstructor
@@ -40,6 +41,20 @@ public class DtoService {
 
     public List<Driver> getDrivers(){
         List<DriverEntity> driverEntities = driverEntityRepo.findAll();
+        List<Driver> drivers=new ArrayList<>();
+        if(!driverEntities.isEmpty()){
+            for(DriverEntity element: driverEntities){
+                Driver driverDto = new Driver();
+                driverDto.setFirstName(element.getFirstName());
+                driverDto.setLastName(element.getLastName());
+                drivers.add(driverDto);
+            }
+        }
+        return drivers;
+    }
+
+    public List<Driver> getActiveDrivers(){
+        List<DriverEntity> driverEntities = driverEntityRepo.findAllWhereIsActive();
         List<Driver> drivers=new ArrayList<>();
         if(!driverEntities.isEmpty()){
             for(DriverEntity element: driverEntities){
