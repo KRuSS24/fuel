@@ -1,19 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru"
-      xmlns:th="http://www.thymeleaf.org">
+<html lang="en" 
+    xmlns:th="http://www.thymeleaf.org">    
 <head>
     <meta charset="UTF-8">
-    <title>Главная</title>
-
-    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/fuel_cards.css}">
+    <title>Fuel Cards</title>
 </head>
 <body>
+    <div class="container">
+        <div class="box-1">
+            <div class="menu-1"><a href="/">Home</a></div>
+            <div class="menu-2"><a href="/fuel_cards">Cards</a></div>
+            <div class="menu-3"><a href="/drivers_list">Drivers</a></div>
+            <div class="menu-4"><a href="#">Log Book</a></div>
+        </div>  
+        <div class="box-2">Fuel Stations
+        </div>
+        <div class="box-3">Fuel Cards
+        </div>
 
-<p><a href="/"><b>H</b>ome</a></p>
-<p><b>A</b>ll Cards</p>
-<p><a href="/drivers_list"><b>D</b>river list</a></p><br>
-<!--<div th:if>-->
-<p th:each="element : ${fuel_cards}" th:text="${element.cardNr}"></p><br>
-<!--</div>-->
+            
+    </div>
 </body>
 </html>
+

@@ -51,6 +51,7 @@ body {
 .box-4{
     grid-column : 10/13 ;
     grid-row : 3/12 ;
+    align-items: start;
 }
 
 .menu-1{

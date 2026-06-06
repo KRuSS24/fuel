@@ -21,13 +21,10 @@
     </div>
     <div class="box-3">Log Book</div>
     <div class="box-4" style="font-family: sans-serif; font-size: 15px;">
-        <div th:each="element : ${drivers}">
-
+        <p th:each="element : ${drivers}">
             <span th:text="${element.firstName}"></span>
-            <!--        <span></span>-->
             <span th:text="${element.lastName}"></span>
-            <br>
-        </div>
+        </p>
     </div>
 </div>
 </body>
