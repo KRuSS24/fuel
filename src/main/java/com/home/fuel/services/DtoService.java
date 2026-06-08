@@ -3,10 +3,13 @@ package com.home.fuel.services;
 
 import com.home.fuel.DTO.Driver;
 import com.home.fuel.DTO.FuelCard;
+import com.home.fuel.DTO.FuelStation;
 import com.home.fuel.entities.DriverEntity;
 import com.home.fuel.entities.FuelCardEntity;
+import com.home.fuel.entities.FuelStationEntity;
 import com.home.fuel.repositories.DriverEntityRepo;
 import com.home.fuel.repositories.FuelCardEntityRepo;
+import com.home.fuel.repositories.FuelStationEntityRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +21,7 @@ import java.util.List;
 public class DtoService {
     private final FuelCardEntityRepo fuelCardEntityRepo;
     private final DriverEntityRepo driverEntityRepo;
+    private final FuelStationEntityRepo fuelStationEntityRepo;
 
     public List<FuelCard> getFuelCards() {
         List<FuelCardEntity> fuelCardEntities = fuelCardEntityRepo.findAll();
@@ -54,15 +58,24 @@ public class DtoService {
 
     public List<Driver> getActiveDrivers(){
         List<DriverEntity> driverEntities = driverEntityRepo.findAllWhereIsActive();
-        List<Driver> drivers=new ArrayList<>();
         if(!driverEntities.isEmpty()){
-            for(DriverEntity element: driverEntities){
-                Driver driverDto = new Driver();
-                driverDto.setFirstName(element.getFirstName());
-                driverDto.setLastName(element.getLastName());
-                drivers.add(driverDto);
-            }
+            return driverEntities.stream().
+                    map(
+                            element-> new Driver(element.getFirstName(),
+                                    element.getLastName(),
+                                    element.getIsActive()))
+                    .toList();
         }
-        return drivers;
+        return null;
+    }
+
+    public List<FuelStation> getFuelStatoins(){
+        List<FuelStationEntity> fuelStationEntities = fuelStationEntityRepo.findAll();
+        if(!fuelStationEntities.isEmpty()){
+            return fuelStationEntities.stream()
+                .map(element->new FuelStation(element.getStationName())).toList();
+
+        }
+        return null;
     }
 }

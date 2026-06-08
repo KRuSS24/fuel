@@ -1,22 +1,20 @@
 package com.home.fuel.DTO;
 
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class FuelStation {
     private String name;
 
 
-    FuelStation() {
-
+    public FuelStation() {
     }
 
-    FuelStation(String name){
+    public FuelStation(String name){
         this.name=name;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 }

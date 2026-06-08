@@ -15,12 +15,14 @@ public class mainController {
 
     @GetMapping("/fuel_cards")
     public String getCards(Model model){
+        model.addAttribute("fuel_stations", dtoService.getFuelStatoins());
         model.addAttribute("fuel_cards",dtoService.getFuelCards());
         return  "fuel_cards";
     }
 
     @GetMapping("/drivers_list")
     public String getDrivers(Model model){
+//        model.addAttribute("drivers",dtoService.getDrivers());
         model.addAttribute("drivers",dtoService.getDrivers());
         return "drivers_list";
     }

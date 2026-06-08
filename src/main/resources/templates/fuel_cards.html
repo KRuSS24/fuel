@@ -15,7 +15,8 @@
             <div class="menu-3"><a href="/drivers_list">Drivers</a></div>
             <div class="menu-4"><a href="#">Log Book</a></div>
         </div>  
-        <div class="box-2">Fuel Stations
+        <div class="box-2 " style="font-family: sans-serif; font-size: 15px">
+            <p th:each="element : ${fuel_stations}"> <span th:text="${element.name}"></span></p>
         </div>
         <div class="box-3">Fuel Cards
         </div>
