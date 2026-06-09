@@ -32,6 +32,7 @@ public class mainController {
     {
         model.addAttribute("fuel_cards", dtoService.getFuelCards());
         model.addAttribute("drivers",dtoService.getActiveDrivers());
+        model.addAttribute("fuel_stations",dtoService.getFuelStatoins());
         return "index";
 
     }
