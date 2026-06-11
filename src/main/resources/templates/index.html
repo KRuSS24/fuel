@@ -14,20 +14,15 @@
         <div class="menu-1"><a href="/">Home</a></div>
         <div class="menu-2"><a href="/fuel_cards">Cards</a></div>
         <div class="menu-3"><a href="/drivers_list">Drivers</a></div>
-        <div class="menu-4"><a href="#">Log Book</a></div>
+        <div class="menu-4"><a href="/log_book">Log Book</a></div>
     </div>        
     <div class="box-2" style="font-family: sans-serif; font-size: 15px;">
-        <p th:each="element : ${fuel_stations}"><b th:text="${element.name}"></b></p> <br>
-    </div>
-    <div class="box-3" style="font-family: sans-serif; font-size: 15px;">
-        <p th:each="element : ${fuel_cards}" th:text="${element.cardNr}"></p><br>
-    </div>
-    <div class="box-4">Log Book</div>
-    <div class="box-5" style="font-family: sans-serif; font-size: 15px;">
-        <p th:each="element : ${drivers}">
-            <span th:text="${element.firstName}"></span>
-            <span th:text="${element.lastName}"></span>
-        </p>
+        <h1>Welcome to the Fuel Card Management System</h1><br>
+        <p>This system allows you to manage fuel cards, drivers, and log books efficiently. Use the navigation menu to access different sections of the application.</p>
+        <p>Click on "<a href="fuel_cards.html" style="text-decoration: underline;">
+            Cards</a>" to view and manage fuel cards, "<a href="drivers_list.html" style="text-decoration: underline;">
+            Drivers</a>" to see the list of drivers, and "<a href="log_book.html" style="text-decoration: underline;">
+            Log Book</a>" to access the log book entries.</p>
     </div>
 </div>
 </body>

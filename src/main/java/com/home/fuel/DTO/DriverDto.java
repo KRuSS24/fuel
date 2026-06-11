@@ -9,8 +9,9 @@ import lombok.Setter;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Driver {
+public class DriverDto {
     private String firstName;
     private String lastName;
+    private String passport;
     private boolean isActive;
 }

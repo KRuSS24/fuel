@@ -9,7 +9,7 @@ import java.time.LocalDate;
 //@RequiredArgsConstructor
 @Setter
 @Getter
-public class FuelCard {
+public class FuelCardDto {
     private String cardNr;
     private String pin;
     private LocalDate expDate;

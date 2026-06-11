@@ -1,9 +1,9 @@
 package com.home.fuel.services;
 
 
-import com.home.fuel.DTO.Driver;
-import com.home.fuel.DTO.FuelCard;
-import com.home.fuel.DTO.FuelStation;
+import com.home.fuel.DTO.DriverDto;
+import com.home.fuel.DTO.FuelCardDto;
+import com.home.fuel.DTO.FuelStationDto;
 import com.home.fuel.entities.DriverEntity;
 import com.home.fuel.entities.FuelCardEntity;
 import com.home.fuel.entities.FuelStationEntity;
@@ -23,57 +23,58 @@ public class DtoService {
     private final DriverEntityRepo driverEntityRepo;
     private final FuelStationEntityRepo fuelStationEntityRepo;
 
-    public List<FuelCard> getFuelCards() {
+    public List<FuelCardDto> getFuelCards() {
         List<FuelCardEntity> fuelCardEntities = fuelCardEntityRepo.findAll();
-        List<FuelCard> fuelCardList = new ArrayList<>();
+        List<FuelCardDto> fuelCardDtoList = new ArrayList<>();
         if (!fuelCardEntities.isEmpty()) {
             for (FuelCardEntity element : fuelCardEntities) {
 
-                FuelCard fuelCard = new FuelCard();
-                fuelCard.setCardNr(element.getCardNr());
-                fuelCard.setPin(element.getPin());
-                fuelCard.setExpDate(element.getExpDate());
-                fuelCard.setTruckNr(element.getTruckNr());
-                fuelCard.setFuelStation(element.getFuelStationEntity().getStationName());
+                FuelCardDto fuelCardDto = new FuelCardDto();
+                fuelCardDto.setCardNr(element.getCardNr());
+                fuelCardDto.setPin(element.getPin());
+                fuelCardDto.setExpDate(element.getExpDate());
+                fuelCardDto.setTruckNr(element.getTruckNr());
+                fuelCardDto.setFuelStation(element.getFuelStationEntity().getStationName());
 
-                fuelCardList.add(fuelCard);
+                fuelCardDtoList.add(fuelCardDto);
             }
         }
-        return fuelCardList;
+        return fuelCardDtoList;
     }
 
-    public List<Driver> getDrivers(){
+    public List<DriverDto> getDrivers(){
         List<DriverEntity> driverEntities = driverEntityRepo.findAll();
-        List<Driver> drivers=new ArrayList<>();
+        List<DriverDto> driverDtos =new ArrayList<>();
         if(!driverEntities.isEmpty()){
             for(DriverEntity element: driverEntities){
-                Driver driverDto = new Driver();
+                DriverDto driverDto = new DriverDto();
                 driverDto.setFirstName(element.getFirstName());
                 driverDto.setLastName(element.getLastName());
-                drivers.add(driverDto);
+                driverDtos.add(driverDto);
             }
         }
-        return drivers;
+        return driverDtos;
     }
 
-    public List<Driver> getActiveDrivers(){
+    public List<DriverDto> getActiveDrivers(){
         List<DriverEntity> driverEntities = driverEntityRepo.findAllWhereIsActive();
         if(!driverEntities.isEmpty()){
             return driverEntities.stream().
                     map(
-                            element-> new Driver(element.getFirstName(),
+                            element-> new DriverDto(element.getFirstName(),
                                     element.getLastName(),
+                                    element.getPassport(),
                                     element.getIsActive()))
                     .toList();
         }
         return null;
     }
 
-    public List<FuelStation> getFuelStatoins(){
+    public List<FuelStationDto> getFuelStatoins(){
         List<FuelStationEntity> fuelStationEntities = fuelStationEntityRepo.findAll();
         if(!fuelStationEntities.isEmpty()){
             return fuelStationEntities.stream()
-                .map(element->new FuelStation(element.getStationName())).toList();
+                .map(element->new FuelStationDto(element.getStationName())).toList();
 
         }
         return null;

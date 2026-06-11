@@ -6,14 +6,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class FuelStation {
+public class FuelStationDto {
     private String name;
 
 
-    public FuelStation() {
+    public FuelStationDto() {
     }
 
-    public FuelStation(String name){
+    public FuelStationDto(String name){
         this.name=name;
     }
 

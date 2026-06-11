@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="drivers_list.css">
-    <script src="drivers_list.js" defer></script>
+    <link rel="stylesheet" th:href="@{/css/drivers_list.css}">
+    <script th:src="@{/js/drivers_list.js}" defer></script>
     <title>Fuel Cards</title>
 </head>
 <body>
 
     <div class="container">
         <div class="box-1">
-            <div class="menu-1"><a href="index.html">Home</a></div>
-            <div class="menu-2"><a href="fuel_cards.html">Cards</a></div>
-            <div class="menu-3"><a href="drivers_list.html">Drivers</a></div>
-            <div class="menu-4"><a href="log_book.html">Log Book</a></div>
+            <div class="menu-1"><a href="/">Home</a></div>
+            <div class="menu-2"><a href="/fuel_cards">Cards</a></div>
+            <div class="menu-3"><a href="/drivers_list">Drivers</a></div>
+            <div class="menu-4"><a href="/log_book">Log Book</a></div>
         </div>  
 
         <div class="box-2 " style="font-family: sans-serif; font-size: 15px">
@@ -25,27 +25,29 @@
                     <li>Edit Driver</li>
                     <li>Delete Driver</li>
                     <li>Power of attorney</li>
-                    <li>Assign driver to the truck</li> 
+                    <li>Assign driverDto to the truck</li>
                 </ul>   
             </div>
 
             
             <h2>Drivers List</h2><br>
-            <p th:each="element : ${drivers}">
-                <span th:text="${element.firstName}">Гассан ибн Хоттаб</span>
-                <span th:text="${element.lastName}">Абдурахман</span>
+            <p th:each="element : ${driverDtos}">
+                <span th:text="${element.firstName}"></span>
+                <span th:text="${element.lastName}"></span>
             </p>            
         </div>
 
         <div class="box-3">
 
-            <form id="formBlock" class="form-hidden" action="add_driver" method="post" style="font-family: sans-serif; font-size: 15px;">
+            <form id="formBlock" class="form-hidden"
+                  th:action="@{/add_driver}"
+                  th:object="${driverDto}" method="post" style="font-family: sans-serif; font-size: 15px;">
                 <label for="firstName">First Name:</label>
-                <input type="text" id="firstName" name="firstName"><br><br>
+                <input th:field="*{firstName}" type="text" id="firstName" name="firstName" ><br><br>
                 <label for="lastName">Last Name:</label>
-                <input type="text" id="lastName" name="lastName"><br><br>
+                <input th:field="*{lastName}" type="text" id="lastName" name="lastName" ><br><br>
                 <label for="passport">Passport Nr:</label>
-                <input type="text" id="passport" name="passport"><br><br>
+                <input th:field="*{passport}" type="text" id="passport" name="passport"><br><br>
 
                 <input type="submit" value="Add Driver" id="closeForm">
             </form>
@@ -55,7 +57,7 @@
                 <label for="name">Last Name:</label>
                 <input type="dropdown" id="name" name="lastName"><br><br>
                 <label for="passport">Passport Nr:</label>
-                <input type="text" id="passport" name="passport"><br><br>
+                <input type="text" id="edit-passport" name="passport"><br><br>
 
                 <input type="submit" value="Edit Driver">
             </form>
