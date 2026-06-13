@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="KRuSS24">
+        <createTable tableName="petrol_stations">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2" author="KRuSS24">
+        <createTable tableName="fuel_cards">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="card_nr" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pin" type="VARCHAR(4)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="exp_date" type="DATE"/>
+            <column name="truck_nr" type="VARCHAR(10)"/>
+            <column name="petrol_station_ref" type="BIGINT"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="fuel_cards"
+                                 baseColumnNames="petrol_station_ref"
+                                 constraintName="petrol_station_ref"
+                                 referencedTableName="petrol_stations"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+
+    <changeSet id="3" author="KRuSS24">
+        <createTable tableName="drivers">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="driver_first_name" type="VARCHAR(30)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="driver_last_name" type="VARCHAR(30)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="passport" type="VARCHAR(20)" >
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_active" type="BIT" >
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="4" author="KRuSS24">
+        <createTable tableName="log_book">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="driver_ref" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="fuel_card_ref" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="issue_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="return_date" type="DATETIME">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_active" type="BOOL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseTableName="log_book"
+                                 baseColumnNames="driver_ref"
+                                 constraintName="driver_ref"
+                                 referencedTableName="drivers"
+                                 referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="log_book"
+                                 baseColumnNames="fuel_card_ref"
+                                 constraintName="fuel_card_ref"
+                                 referencedTableName="fuel_cards"
+                                 referencedColumnNames="id"/>
+
+    </changeSet>
+</databaseChangeLog>
+

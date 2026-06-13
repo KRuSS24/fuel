@@ -25,6 +25,9 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.46'
     annotationProcessor 'org.projectlombok:lombok:1.18.46'
 
+    // Source: https://mvnrepository.com/artifact/org.liquibase/liquibase-core
+    implementation("org.liquibase:liquibase-core:5.0.3")
+
     runtimeOnly 'com.mysql:mysql-connector-j'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.46'
