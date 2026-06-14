@@ -6,13 +6,13 @@ import com.home.fuel.verification.Errors;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DriverFirstNameCheck implements DriversVerificationInterf {
+public class DriverPassportCheck implements DriversVerificationInterf {
 
     @Override
     public Errors driversVerification(DriverDto driverDto) {
 
-        if(driverDto.getFirstName() == null || driverDto.getFirstName().isEmpty()) {
-            return new Errors("First name is required");
+        if(driverDto.getPassport() == null || driverDto.getPassport().isEmpty()) {
+            return new Errors("Passport is required");
         }
         return null;
     }

@@ -17,11 +17,4 @@ public class DriverLastNameCheck implements DriversVerificationInterf {
             return null;
     }
 
-    //    Errors lastNameIsEmptyCheck(String lastName) {
-//        if(lastName == null || lastName.isEmpty()) {
-//            return new Errors("Last name is empty");
-//        };
-//        return null;
-//    }
-
 }
