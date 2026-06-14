@@ -1,0 +1,33 @@
+<changeSet id="4" author="KRuSS24">
+    <createTable tableName="log_book">
+        <column name="id" type="BIGINT">
+            <constraints primaryKey="true"/>
+        </column>
+        <column name="driver_ref" type="BIGINT">
+            <constraints nullable="false"/>
+        </column>
+        <column name="fuel_card_ref" type="BIGINT">
+            <constraints nullable="false"/>
+        </column>
+        <column name="issue_date" type="DATETIME">
+            <constraints nullable="false"/>
+        </column>
+        <column name="return_date" type="DATETIME">
+            <constraints nullable="false"/>
+        </column>
+        <column name="is_active" type="BOOL">
+            <constraints nullable="false"/>
+        </column>
+    </createTable>
+    <addForeignKeyConstraint baseTableName="log_book"
+                             baseColumnNames="driver_ref"
+                             constraintName="driver_ref"
+                             referencedTableName="drivers"
+                             referencedColumnNames="id"/>
+    <addForeignKeyConstraint baseTableName="log_book"
+                             baseColumnNames="fuel_card_ref"
+                             constraintName="fuel_card_ref"
+                             referencedTableName="fuel_cards"
+                             referencedColumnNames="id"/>
+
+</changeSet>

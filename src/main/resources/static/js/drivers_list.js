@@ -9,9 +9,9 @@ openBtn.addEventListener('click', function (e) {
     form.classList.add('form-visible');
 });
 
-// скрыть форму
-closeBtn.addEventListener('click', function (e) {
-    e.preventDefault();
+// скрыть
+form.addEventListener('submit', function () {
+    // e.preventDefault();
     form.classList.remove('form-visible');
     form.classList.add('form-hidden');
 });

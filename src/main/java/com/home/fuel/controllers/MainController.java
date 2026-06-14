@@ -28,6 +28,7 @@ public class MainController {
 
     @GetMapping("/drivers_list")
     public String getDrivers(Model model){
+        System.out.println("Procedure Get Drivers was initialised");
 
         model.addAttribute("drivers",dtoService.getDrivers());
         model.addAttribute("driverDto", new DriverDto());
@@ -37,19 +38,23 @@ public class MainController {
     @GetMapping("/")
     public String home(Model model)
     {
+        System.out.println("Procedure HOME was initialised");
         model.addAttribute("fuel_cards", dtoService.getFuelCards());
         model.addAttribute("drivers",dtoService.getActiveDrivers());
         model.addAttribute("fuel_stations",dtoService.getFuelStatoins());
         return "index";
 
     }
+
     @PostMapping("/add_driver")
     public String addDriver(@ModelAttribute("driverDto") DriverDto driverDto, Model model){
-        DriverEntity driverEntity = dbService.driverFind(driverDto);
-        if(driverEntity==null){
-            // add driver to the DB
-        }
+        System.out.println("Procedure Add Driver was initialized");
+
+        dbService.driverProcessing(driverDto);
+
+
             model.addAttribute("drivers",dtoService.getActiveDrivers());
+            model.addAttribute("driverDto",new DriverDto());
         return "drivers_list";
     }
 }
