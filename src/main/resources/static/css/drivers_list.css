@@ -95,3 +95,11 @@ a {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 }
+
+.drivers-list{
+    cursor: pointer;
+}
+
+.drivers-list:hover{
+    background-color: beige;
+}

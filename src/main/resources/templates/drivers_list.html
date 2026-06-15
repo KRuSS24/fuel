@@ -31,10 +31,12 @@
 
             
             <h2>Drivers List</h2><br>
-            <p th:each="element : ${drivers}">
-                <span th:text="${element.firstName}"></span>
-                <span th:text="${element.lastName}"></span>
-            </p>            
+            <ul>
+                <li th:each="element : ${drivers}" class="drivers-list">
+                    <span th:text="${element.lastName}"></span>
+                    <span th:text="${element.firstName}"></span>
+                </li>
+            </ul>
         </div>
 
         <div class="box-3">
@@ -48,9 +50,7 @@
                 <input th:field="*{lastName}" type="text" id="lastName" name="lastName" ><br><br>
                 <label for="passport">Passport Nr:</label>
                 <input th:field="*{passport}" type="text" id="passport" name="passport"><br><br>
-
                 <input type="submit" value="Add Driver" id="closeForm">
-                <input type="button" value="X" id="closeFormNoAction">
             </form>
 
 <!--Form "Edit Driver"-->

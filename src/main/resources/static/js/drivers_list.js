@@ -2,7 +2,6 @@
 
 const openBtn = document.getElementById('openForm');
 const openEditBtn= document.getElementById('openEditForm');
-const closeBtn = document.getElementById('closeFormNoAction');
 const form = document.getElementById('formBlock');
 const editForm = document.getElementById("editForm")
 
@@ -25,10 +24,6 @@ form.addEventListener('submit', function () {
     form.classList.remove('form-visible');
     form.classList.add('form-hidden');
 });
-closeBtn.addEventListener('click', function(){
-    form.classList.remove('form-visible');
-    form.classList.add('form-hidden');
-})
 
 //показать Edit форму
 openEditBtn.addEventListener('click', function(){
