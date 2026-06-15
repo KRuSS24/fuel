@@ -22,10 +22,10 @@
             <div style="margin-bottom: 20px; padding: 10px;">
                 <ul>
                     <li><a href="#" id="openForm">Add Driver</a></li>
-                    <li>Edit Driver</li>
+                    <li><a href="#" id="openEditForm">Edit Driver</a></li>
                     <li>Delete Driver</li>
                     <li>Power of attorney</li>
-                    <li>Assign driverDto to the truck</li>
+<!--                    <li>Assign driver to the truck</li>-->
                 </ul>   
             </div>
 
@@ -38,7 +38,7 @@
         </div>
 
         <div class="box-3">
-
+<!--Form "Add Driver"-->
             <form id="formBlock" class="form-hidden"
                   th:action="@{/add_driver}"
                   th:object="${driverDto}" method="post" style="font-family: sans-serif; font-size: 15px;">
@@ -50,13 +50,17 @@
                 <input th:field="*{passport}" type="text" id="passport" name="passport"><br><br>
 
                 <input type="submit" value="Add Driver" id="closeForm">
+                <input type="button" value="X" id="closeFormNoAction">
             </form>
 
-            <form id="editForm" class="form-hidden" action="edit_driver" method="post" style="font-family: sans-serif; font-size: 15px;">
+<!--Form "Edit Driver"-->
+            <form id="editForm" class="form-hidden"
+                  th:action="@{/edit_driver}"
+                  th:object="${driverDto}" method="post" style="font-family: sans-serif; font-size: 15px;">
             
                 <label for="name">Last Name:</label>
-                <input type="dropdown" id="name" name="lastName"><br><br>
-                <label for="passport">Passport Nr:</label>
+                <input th:field="*{lastName}" type="text" id="name" name="lastName"><br><br>
+                <label for="edit-passport">Passport Nr:</label>
                 <input type="text" id="edit-passport" name="passport"><br><br>
 
                 <input type="submit" value="Edit Driver">

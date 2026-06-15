@@ -43,7 +43,7 @@ public class DtoService {
     }
 
     public List<DriverDto> getDrivers(){
-        List<DriverEntity> driverEntities = driverEntityRepo.findAll();
+        List<DriverEntity> driverEntities = driverEntityRepo.findAllOrderByLastName();
         List<DriverDto> driverDtos =new ArrayList<>();
         if(!driverEntities.isEmpty()){
             for(DriverEntity element: driverEntities){

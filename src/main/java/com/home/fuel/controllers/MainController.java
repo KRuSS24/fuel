@@ -1,7 +1,6 @@
 package com.home.fuel.controllers;
 
 import com.home.fuel.DTO.DriverDto;
-import com.home.fuel.entities.DriverEntity;
 import com.home.fuel.services.DBService;
 import com.home.fuel.services.DtoService;
 import lombok.RequiredArgsConstructor;
