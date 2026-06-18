@@ -26,9 +26,15 @@ form.addEventListener('submit', function () {
 });
 
 //показать Edit форму
-openEditBtn.addEventListener('click', function(){
-    editForm.classList.remove('form-hidden');
-    editForm.classList.add('form-visible');
+openEditBtn.addEventListener('click', function(e){
+    e.preventDefault();
+    if(editForm.classList.contains('form-hidden')){
+        editForm.classList.remove('form-hidden');
+        editForm.classList.add('form-visible');
+    } else {
+        editForm.classList.remove('form-visible');
+        editForm.classList.add('form-hidden');
+    }
 });
 
 // Скрыть Edit форму

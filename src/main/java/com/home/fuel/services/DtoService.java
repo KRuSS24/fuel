@@ -44,16 +44,19 @@ public class DtoService {
 
     public List<DriverDto> getDrivers(){
         List<DriverEntity> driverEntities = driverEntityRepo.findAllOrderByLastName();
-        List<DriverDto> driverDtos =new ArrayList<>();
         if(!driverEntities.isEmpty()){
-            for(DriverEntity element: driverEntities){
-                DriverDto driverDto = new DriverDto();
-                driverDto.setFirstName(element.getFirstName());
-                driverDto.setLastName(element.getLastName());
-                driverDtos.add(driverDto);
-            }
+            return driverEntities.stream()
+                    .map(
+                    element->new DriverDto(
+                            element.getId(),
+                            element.getFirstName(),
+                            element.getLastName(),
+                            element.getPassport(),
+                            element.getIsActive()
+                            )
+                    ).toList();
         }
-        return driverDtos;
+        return null;
     }
 
     public List<DriverDto> getActiveDrivers(){
@@ -61,7 +64,9 @@ public class DtoService {
         if(!driverEntities.isEmpty()){
             return driverEntities.stream().
                     map(
-                            element-> new DriverDto(element.getFirstName(),
+                            element-> new DriverDto(
+                                    element.getId(),
+                                    element.getFirstName(),
                                     element.getLastName(),
                                     element.getPassport(),
                                     element.getIsActive()))
@@ -74,7 +79,8 @@ public class DtoService {
         List<FuelStationEntity> fuelStationEntities = fuelStationEntityRepo.findAll();
         if(!fuelStationEntities.isEmpty()){
             return fuelStationEntities.stream()
-                .map(element->new FuelStationDto(element.getStationName())).toList();
+                .map(element->new FuelStationDto(
+                        element.getStationName())).toList();
 
         }
         return null;

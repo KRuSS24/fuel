@@ -32,7 +32,7 @@
             
             <h2>Drivers List</h2><br>
             <ul>
-                <li th:each="element : ${drivers}" class="drivers-list">
+                <li th:each="element : ${drivers}" th:id="'driver-' + ${element.id}" class="drivers-list">
                     <span th:text="${element.lastName}"></span>
                     <span th:text="${element.firstName}"></span>
                 </li>
@@ -43,7 +43,7 @@
 <!--Form "Add Driver"-->
             <form id="formBlock" class="form-hidden"
                   th:action="@{/add_driver}"
-                  th:object="${driverDto}" method="post" style="font-family: sans-serif; font-size: 15px;">
+                  th:object="${driverDto}" method="post">
                 <label for="firstName">First Name:</label>
                 <input th:field="*{firstName}" type="text" id="firstName" name="firstName" ><br><br>
                 <label for="lastName">Last Name:</label>
