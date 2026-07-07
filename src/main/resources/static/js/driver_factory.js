@@ -4,7 +4,6 @@ const openBtn = document.getElementById('openForm');
 const openEditBtn= document.getElementById('openEditForm');
 const form = document.getElementById('formBlock');
 const editForm = document.getElementById("editForm")
-// const driver_list[]=document.getElementsByClassName('driver_list');
 
 // показать форму
 openBtn.addEventListener('click', function (e) {
@@ -42,11 +41,4 @@ openEditBtn.addEventListener('click', function(e){
 editForm.addEventListener('submit', function (){
     editForm.classList.remove('form-visible');
     editForm.classList.add('form-hidden')
-})
-
-document.querySelectorAll('.drivers-list').forEach(item => {
-    item.addEventListener('click', function () {
-        const driver_id = item.getAttribute("id").split("-")[1];
-        window.location.href = `driver_factory?id=${driver_id}`;
-    })
 })

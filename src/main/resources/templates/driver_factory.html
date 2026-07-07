@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/driver_factory.css}">
+    <script th:src="@{/js/driver_factory.js}" defer></script>
+    <title>Fuel Cards</title>
+</head>
+<body>
+
+    <div class="container">
+        <div class="box-1">
+            <div class="menu-1"><a href="/">Home</a></div>
+            <div class="menu-2"><a href="/fuel_cards">Cards</a></div>
+            <div class="menu-3"><a href="/drivers_list">Drivers</a></div>
+            <div class="menu-4"><a href="/log_book">Log Book</a></div>
+        </div>  
+
+        <div class="box-2">
+
+            <br>
+            <form action="driver_factory.html" method="POST">
+                <button class="driver-factory-btn" type="button">Edit</button>
+            </form>
+            <br>
+            <form action="driver_factory.html" method="DELETE">
+                <input class="driver-factory-btn" type="button" name="Delete" id="btnDelete">
+            </form>
+
+        </div>
+
+        <div class="box-3">
+            <h1 th:text="|${driverDto.lastName} ${driverDto.firstName}|">Drivers List</h1><br>
+            <form th:action="@{/driver_factory}" th:object="${driverDto}" method="post" >
+                <label for="passport">Passport</label>
+                <input class="driver-factory-form" th:field="*{passport}" type="text" name="passport" id="passport" th:placeholder="${passport}" required>
+                <br>
+                <label for="isActive">Active</label>
+                <input class="driver-factory-form" th:field="*{active}" type="checkbox" name="isActive" id="isActive" th:checked="${driverDto.active}" required>
+                <br>
+            </form>
+            <h3 th:text="|Passport: ${driverDto.passport}|"></h3>
+        </div>
+
+            
+    </div>
+</body>
+</html>
+

@@ -2,14 +2,12 @@ package com.home.fuel.controllers;
 
 import com.home.fuel.DTO.DriverDto;
 import com.home.fuel.services.DBService;
+import com.home.fuel.services.DriverServices;
 import com.home.fuel.services.DtoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @Controller
@@ -17,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class MainController {
     private final DtoService dtoService;
     private final DBService dbService;
+    private final DriverServices driverServices;
 
     @GetMapping("/")
     public String home(Model model)
@@ -53,5 +52,13 @@ public class MainController {
         model.addAttribute("drivers",dtoService.getActiveDrivers());
         model.addAttribute("driverDto",new DriverDto());
         return "drivers_list";
+    }
+
+    @GetMapping("/driver_factory")
+    public String getDriverFactory(@RequestParam("id") Long id, Model model){
+        System.out.println("Procedure Get Driver Factory was initialised");
+        model.addAttribute("driverDto",driverServices.getDriver(id));
+//        model.addAttribute("driver", new DriverDto());
+        return  "driver_factory";
     }
 }

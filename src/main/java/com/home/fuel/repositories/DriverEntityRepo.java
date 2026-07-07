@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface DriverEntityRepo extends JpaRepository<DriverEntity,Long> {
 
@@ -12,6 +13,8 @@ public interface DriverEntityRepo extends JpaRepository<DriverEntity,Long> {
     List<DriverEntity> findAllWhereIsActive();
 
     DriverEntity findByFirstNameAndLastNameAndPassport(String firstName, String lastName, String passport);
+
+    Optional<DriverEntity> findById(Long id);
 
     @Query("SELECT dr FROM DriverEntity dr ORDER BY dr.lastName ASC")
     List<DriverEntity> findAllOrderByLastName();
