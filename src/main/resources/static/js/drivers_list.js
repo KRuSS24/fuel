@@ -47,6 +47,6 @@ editForm.addEventListener('submit', function (){
 document.querySelectorAll('.drivers-list').forEach(item => {
     item.addEventListener('click', function () {
         const driver_id = item.getAttribute("id").split("-")[1];
-        window.location.href = `driver_factory?id=${driver_id}`;
+        window.location.href = `/drivers/driver_factory?id=${driver_id}`;
     })
 })

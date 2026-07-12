@@ -20,7 +20,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DtoService {
     private final FuelCardEntityRepo fuelCardEntityRepo;
-    private final DriverEntityRepo driverEntityRepo;
+
     private final FuelStationEntityRepo fuelStationEntityRepo;
 
     public List<FuelCardDto> getFuelCards() {
@@ -42,38 +42,7 @@ public class DtoService {
         return fuelCardDtoList;
     }
 
-    public List<DriverDto> getDrivers(){
-        List<DriverEntity> driverEntities = driverEntityRepo.findAllOrderByLastName();
-        if(!driverEntities.isEmpty()){
-            return driverEntities.stream()
-                    .map(
-                    element->new DriverDto(
-                            element.getId(),
-                            element.getFirstName(),
-                            element.getLastName(),
-                            element.getPassport(),
-                            element.getIsActive()
-                            )
-                    ).toList();
-        }
-        return null;
-    }
 
-    public List<DriverDto> getActiveDrivers(){
-        List<DriverEntity> driverEntities = driverEntityRepo.findAllWhereIsActive();
-        if(!driverEntities.isEmpty()){
-            return driverEntities.stream().
-                    map(
-                            element-> new DriverDto(
-                                    element.getId(),
-                                    element.getFirstName(),
-                                    element.getLastName(),
-                                    element.getPassport(),
-                                    element.getIsActive()))
-                    .toList();
-        }
-        return null;
-    }
 
     public List<FuelStationDto> getFuelStatoins(){
         List<FuelStationEntity> fuelStationEntities = fuelStationEntityRepo.findAll();
@@ -85,4 +54,6 @@ public class DtoService {
         }
         return null;
     }
+
+
 }

@@ -1,17 +1,16 @@
-package com.home.fuel.services;
+package com.home.fuel.services.drivers;
 
 import com.home.fuel.DTO.DriverDto;
 import com.home.fuel.entities.DriverEntity;
 import com.home.fuel.repositories.DriverEntityRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class DriverServices {
+public class DriverDtoById {
     private final DriverEntityRepo driverEntityRepo;
 
     public DriverDto  getDriver(Long id){
@@ -22,6 +21,13 @@ public class DriverServices {
                     driverEntity.getFirstName(),
                     driverEntity.getLastName(),
                     driverEntity.getPassport(),
+                    driverEntity.getDateOfHire(),
+                    driverEntity.getDateOfDismission(),
+                    driverEntity.getDriversCountry(),
+                    driverEntity.getDriversCity(),
+                    driverEntity.getDriversAddress(),
+                    driverEntity.getDriversZip(),
+                    driverEntity.getPhone(),
                     driverEntity.getIsActive());
         }
         return null;

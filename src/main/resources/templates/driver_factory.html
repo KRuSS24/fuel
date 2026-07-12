@@ -19,21 +19,20 @@
         </div>  
 
         <div class="box-2">
+            <br>
+            <h1 th:text="|${driverDto.lastName} ${driverDto.firstName}|" th:id="${driverDto.id}" class="driver">Drivers List</h1><br>
+            <h3 th:text="|Passport: ${driverDto.passport}|"></h3>
+            <h3 th:text="|Date of hire: ${driverDto.dateOfHire}|"/>
 
             <br>
-            <form action="driver_factory.html" method="POST">
-                <button class="driver-factory-btn" type="button">Edit</button>
-            </form>
+                <button class="btn-block2" id="driver-factory-btn-edit" type="button">Edit</button>
             <br>
-            <form action="driver_factory.html" method="DELETE">
-                <input class="driver-factory-btn" type="button" name="Delete" id="btnDelete">
-            </form>
+                <button class="btn-block2" id="driver-factory-btn-dismiss" type="button">Dismiss</button>
 
         </div>
 
         <div class="box-3">
-            <h1 th:text="|${driverDto.lastName} ${driverDto.firstName}|">Drivers List</h1><br>
-            <form th:action="@{/driver_factory}" th:object="${driverDto}" method="post" >
+            <form th:action="@{/driver_factory}" th:object="${driverDto}" method="post" class="form-hidden" th:id="editForm">
                 <label for="passport">Passport</label>
                 <input class="driver-factory-form" th:field="*{passport}" type="text" name="passport" id="passport" th:placeholder="${passport}" required>
                 <br>
@@ -41,7 +40,6 @@
                 <input class="driver-factory-form" th:field="*{active}" type="checkbox" name="isActive" id="isActive" th:checked="${driverDto.active}" required>
                 <br>
             </form>
-            <h3 th:text="|Passport: ${driverDto.passport}|"></h3>
         </div>
 
             

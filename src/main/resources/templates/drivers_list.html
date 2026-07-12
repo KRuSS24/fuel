@@ -42,15 +42,31 @@
         <div class="box-3">
 <!--Form "Add Driver"-->
             <form id="formBlock" class="form-hidden"
-                  th:action="@{/add_driver}"
+                  th:action="@{/drivers/add_driver}"
                   th:object="${driverDto}" method="post">
-                <label for="firstName">First Name:</label>
+                <label for="firstName">First Name:</label><br>
                 <input th:field="*{firstName}" type="text" id="firstName" name="firstName" ><br><br>
-                <label for="lastName">Last Name:</label>
+                <label for="lastName">Last Name:</label><br>
                 <input th:field="*{lastName}" type="text" id="lastName" name="lastName" ><br><br>
-                <label for="passport">Passport Nr:</label>
+                <label for="passport">Passport Nr:</label><br>
                 <input th:field="*{passport}" type="text" id="passport" name="passport"><br><br>
+                <label for="date-of-hire">Date of hiring:</label><br>
+                <input th:field="*{dateOfHire}" type="text" id="date-of-hire" name="dateOfHire"><br><br>
+                <label for="date-of-dismiss">Date of dismiss:</label><br>
+
+                <input th:field="*{dateOfDismission}" type="text" id="date-of-dismiss" name="dateOfDismission"><br><br>
+                <label for="country">Country:</label><br>
+                <input th:field="*{driversCountry}" type="text" id="country" name="country"><br><br>
+                <label for="city">City:</label><br>
+                <input th:field="*{driversCity}" type="text" id="city" name="city"><br><br>
+                <label for="address">Address:</label><br>
+                <input th:field="*{driversAddress}" type="text" id="address" name="address"><br><br>
+                <label for="zip">Zip:</label><br>
+                <input th:field="*{driversZip}" type="text" id="zip" name="zip"><br><br>
+                <label for="phone">Phone Nr:</label><br>
+                <input th:field="*{driversPhone}" type="text" id="phone" name="phone"><br><br>
                 <input type="submit" value="Add Driver" id="closeForm">
+
             </form>
 
 <!--Form "Edit Driver"-->

@@ -81,28 +81,23 @@ a {
     place-items: center;
 }
 
-.drivers-list{
-    cursor: pointer;
-}
-
-.drivers-list:hover{
-    background-color: beige;
-}
-
 #formBlock,#editForm{
     font-family: sans-serif;
     font-size: 15px;
 }
-.driver-factory-btn{
+
+.btn-block2{
+/*.driver-factory-btn{*/
+    display: block;
     font-family: sans-serif;
     font-size: 15px;
-    color: white;
+    background-color: white;
     height: auto;
     width: 250px;
     padding: 10px;
-    border: none;
+    border: 5px burlywood;
     border-radius: 5px;
-
+    cursor: pointer;
 }
 .driver-factory-form{
     font-family: sans-serif;
@@ -113,4 +108,12 @@ a {
     width: 350px;
     padding: 10px;
     border: none;
+}
+
+.form-hidden{
+    display: none;
+}
+
+.form-visible {
+    display: block;
 }

@@ -1,19 +1,27 @@
 
 
-const openBtn = document.getElementById('openForm');
-const openEditBtn= document.getElementById('openEditForm');
-const form = document.getElementById('formBlock');
+const openEditBtn= document.getElementById('driver-factory-btn-edit');
 const editForm = document.getElementById("editForm")
+const dismissBtn = document.getElementById('driver-factory-btn-dismiss');
+const driverId=document.getElementsByClassName("driver")[0].id;
 
-// показать форму
-openBtn.addEventListener('click', function (e) {
+const form = document.getElementById('formBlock');
+
+dismissBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    if(form.classList.contains('form-hidden')){
-        form.classList.remove('form-hidden');
-        form.classList.add('form-visible');
+    // window.location.href="drivers/driver_factory";
+    window.location.href = `/drivers/driver-dismiss?id=${driverId}`;
+
+})
+// показать форму
+openEditBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    if(editForm.classList.contains('form-hidden')){
+        editForm.classList.remove('form-hidden');
+        editForm.classList.add('form-visible');
     } else {
-        form.classList.remove('form-visible');
-        form.classList.add('form-hidden');
+        editForm.classList.remove('form-visible');
+        editForm.classList.add('form-hidden');
     }
 
 });
