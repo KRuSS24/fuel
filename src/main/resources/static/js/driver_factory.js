@@ -9,7 +9,6 @@ const form = document.getElementById('formBlock');
 
 dismissBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    // window.location.href="drivers/driver_factory";
     window.location.href = `/drivers/driver-dismiss?id=${driverId}`;
 
 })
