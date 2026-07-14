@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/driver_factory.css}">
     <script th:src="@{/js/driver_factory.js}" defer></script>
-    <title>Fuel Cards</title>
+    <title>Driver</title>
 </head>
 <body>
 
@@ -27,18 +27,36 @@
             <br>
                 <button class="btn-block2" id="driver-factory-btn-edit" type="button">Edit</button>
             <br>
-                <button class="btn-block2" id="driver-factory-btn-dismiss" type="button">Dismiss</button>
+            <button class="btn-block2" id="driver-factory-btn-power-of-attorney" type="button">Power of attorney</button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button class="btn-block2" id="driver-factory-btn-dismiss" type="button">Dismiss</button>
 
         </div>
 
         <div class="box-3">
             <form th:action="@{/driver_factory}" th:object="${driverDto}" method="post" class="form-hidden" th:id="editForm">
-                <label for="passport">Passport</label>
-                <input class="driver-factory-form" th:field="*{passport}" type="text" name="passport" id="passport" th:placeholder="${passport}" required>
-                <br>
-                <label for="isActive">Active</label>
-                <input class="driver-factory-form" th:field="*{active}" type="checkbox" name="isActive" id="isActive" th:checked="${driverDto.active}" required>
-                <br>
+
+                <label for="passport">Passport Nr:</label><br>
+                <input th:field="*{passport}" type="text" id="passport" name="passport"><br><br>
+                <label for="date-of-hire">Date of hiring:</label><br>
+                <input th:field="*{dateOfHire}" type="text" id="date-of-hire" name="dateOfHire"><br><br>
+                <label for="date-of-dismiss">Date of dismiss:</label><br>
+                <input th:field="*{dateOfDismission}" type="text" id="date-of-dismiss" name="dateOfDismission"><br><br>
+                <label for="country">Country:</label><br>
+                <input th:field="*{driversCountry}" type="text" id="country" name="country"><br><br>
+                <label for="city">City:</label><br>
+                <input th:field="*{driversCity}" type="text" id="city" name="city"><br><br>
+                <label for="address">Address:</label><br>
+                <input th:field="*{driversAddress}" type="text" id="address" name="address"><br><br>
+                <label for="zip">Zip:</label><br>
+                <input th:field="*{driversZip}" type="text" id="zip" name="zip"><br><br>
+                <label for="phone">Phone Nr:</label><br>
+                <input th:field="*{driversPhone}" type="text" id="phone" name="phone"><br><br>
+                <input type="submit" value="Submit" id="closeForm">
+
             </form>
         </div>
 
