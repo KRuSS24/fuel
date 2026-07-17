@@ -117,3 +117,13 @@ a {
 .form-visible {
     display: block;
 }
+
+input {
+    font-family: sans-serif;
+    font-size: 13px;
+    height: auto;
+    width: 350px;
+    padding: 5px;
+    border-color: crimson;
+    border-radius: 5px;
+}
